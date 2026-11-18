@@ -1,0 +1,7 @@
+
+> ruang-kopi-serah-terima@1.0.0 test
+> node pengujian/core.test.cjs && node pengujian/intro.test.cjs && node pengujian/source.test.cjs
+
+PASS: grouped navigation + legacy bookmarks, merged ingredients and stock, unified sales and profit, financial regression, all transaction/backup flows, unit conversion preserving cost and history, dialog, and stock notices.
+PASS: intro first visit, skip, replay, completion, inert cleanup and reduced-motion bypass.
+PASS: JavaScript syntax, CSS parsing and local HTML references.

@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><title>Ruang Kopi — animasi pembuka</title><link rel="stylesheet" href="intro.css"><style>body{margin:0;width:900px;height:700px;background:#eef4e9;display:grid;place-items:center}.intro-scene{width:900px;height:700px;padding:35px;gap:10px}.intro-drawing{max-width:760px}.intro-drawing svg{max-height:none;width:100%}.intro-brand{font-family:Georgia,serif}.intro-tagline,.intro-ready{font-family:Arial,sans-serif}</style></head><body><div class="intro-scene" data-composition-id="coffee-intro" data-start="0" data-duration="6.2" data-width="900" data-height="700"><div class="intro-brand">ruang kopi.</div><p class="intro-tagline">Dari satu cangkir, mulai rencanamu.</p><div class="intro-drawing" data-layout-ignore><svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="coffee-scene-title">
+<title id="coffee-scene-title">Kopi dituangkan ke cangkir kosong di atas meja, cangkir bergoyang dan kopi memercik kecil.</title>
+<defs>
+ <linearGradient id="ceramic" x1="0" x2="1"><stop stop-color="#d9e9ce"/><stop offset=".35" stop-color="#b9d8b8"/><stop offset=".75" stop-color="#8dbca4"/><stop offset="1" stop-color="#689b85"/></linearGradient>
+ <linearGradient id="table" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e8ceaa"/><stop offset="1" stop-color="#cba77b"/></linearGradient>
+ <linearGradient id="coffee" x1="0" x2=".7" y1="0" y2="1"><stop stop-color="#a56a3e"/><stop offset=".5" stop-color="#75462b"/><stop offset="1" stop-color="#442c20"/></linearGradient>
+ <linearGradient id="cream" x1="0" x2="1"><stop stop-color="#fffbed"/><stop offset=".6" stop-color="#eee2c9"/><stop offset="1" stop-color="#cdbb9b"/></linearGradient>
+ <linearGradient id="stream" x1="0" x2="1"><stop stop-color="#603a24"/><stop offset=".5" stop-color="#a66b3e"/><stop offset="1" stop-color="#6d4026"/></linearGradient>
+ <radialGradient id="shadow"><stop stop-color="#543d2d" stop-opacity=".24"/><stop offset="1" stop-color="#543d2d" stop-opacity="0"/></radialGradient>
+ <clipPath id="cup-opening"><ellipse cx="446" cy="294" rx="99" ry="31"/></clipPath>
+</defs>
+<g class="scene-decor" opacity=".7"><circle cx="202" cy="190" r="78" fill="#dce7cd"/><circle cx="714" cy="262" r="105" fill="#ece4d5"/><path d="M173 303c-9-32 18-63 44-62-3 29-15 52-44 62Z" fill="#b6cdb0"/><path d="m180 294 29-42" stroke="#84a98c" stroke-width="2"/><circle cx="680" cy="128" r="7" fill="#bbd3b0"/><circle cx="259" cy="122" r="4" fill="#a9c1a2"/></g>
+<g class="scene-table"><path d="M112 402h676l106 138H6Z" fill="url(#table)"/><path d="m112 402-3 7h680l-1-7Z" fill="#f2ddbf"/><path d="M152 424h580M97 476h707M303 403l-45 137M648 403l74 137" stroke="#b9986c" opacity=".18" stroke-width="2"/></g>
+<ellipse class="scene-shadow" cx="458" cy="438" rx="195" ry="43" fill="url(#shadow)"/>
+<g class="scene-saucer"><ellipse cx="451" cy="435" rx="153" ry="39" fill="#b6c2a4"/><ellipse cx="451" cy="428" rx="153" ry="37" fill="url(#cream)"/><ellipse cx="451" cy="426" rx="110" ry="23" fill="none" stroke="#d3c9ad" stroke-width="2"/></g>
+<g class="scene-cup">
+ <path d="M549 318c83-25 96 81 22 82l-15-21c48 7 52-57 2-41" fill="none" stroke="#659980" stroke-width="26"/>
+ <path d="M549 312c82-20 89 81 17 80l-9-17c44 4 50-52 1-43" fill="none" stroke="#bed4af" stroke-width="15"/>
+ <path d="M338 292h217l-15 100c-5 52-160 56-178 4Z" fill="url(#ceramic)"/>
+ <path d="M353 320c3 32 8 63 15 77 5 12 18 20 31 22" fill="none" stroke="#ecf2dc" stroke-opacity=".7" stroke-width="6" stroke-linecap="round"/>
+ <ellipse cx="446" cy="294" rx="109" ry="38" fill="#f3efdc"/>
+ <ellipse cx="446" cy="294" rx="99" ry="31" fill="#c9cdb5"/>
+ <ellipse cx="446" cy="299" rx="83" ry="21" fill="#e7e5d1"/>
+ <g clip-path="url(#cup-opening)"><ellipse class="coffee-liquid" cx="446" cy="294" rx="99" ry="31" fill="url(#coffee)"/><ellipse class="coffee-foam" cx="446" cy="294" rx="89" ry="23" fill="none" stroke="#c18c52" stroke-width="3"/><ellipse class="coffee-ripple" cx="456" cy="290" rx="24" ry="8" fill="none" stroke="#ebbb7e" stroke-opacity=".6" stroke-width="2"/></g>
+ <path d="M338 295c16 49 198 49 217 0" fill="none" stroke="#e9ebd4" stroke-width="5"/>
+ <text x="443" y="386" text-anchor="middle" fill="#3f795a" font-family="Georgia,serif" font-size="41" font-style="italic">rk.</text>
+</g>
+<g class="coffee-pour"><path class="pour-stream" d="M478 134c-9 28-24 53-24 85s10 40-1 75" fill="none" stroke="url(#stream)" stroke-width="16" stroke-linecap="round"/><path class="pour-highlight" d="M475 137c-7 27-22 56-18 84s6 46-2 69" fill="none" stroke="#c38e54" stroke-width="3" opacity=".7"/></g>
+<g class="scene-pitcher"><path d="M587 62c61-12 71 60 16 67" fill="none" stroke="#d0bfa0" stroke-width="17"/><path d="M518 38h83l-9 104c-2 28-68 32-81 7l-20-49-32 38 8-67 43-11Z" fill="url(#cream)"/><ellipse cx="558" cy="39" rx="44" ry="12" fill="#fff7e5"/><ellipse cx="558" cy="40" rx="34" ry="7" fill="#b9a17d"/><path d="M527 62v65c0 11 6 18 13 20" fill="none" stroke="#fffaf0" stroke-width="5" stroke-linecap="round"/></g>
+<g fill="#865334" class="scene-drops">
+ <ellipse class="drop drop-1" cx="445" cy="287" rx="5" ry="8"/>
+ <ellipse class="drop drop-2" cx="459" cy="286" rx="4" ry="7"/>
+ <ellipse class="drop drop-3" cx="440" cy="289" rx="4" ry="6"/>
+ <ellipse class="drop drop-4" cx="460" cy="289" rx="3" ry="5"/>
+ <ellipse class="drop drop-5" cx="448" cy="286" rx="4" ry="6"/>
+ <ellipse class="drop drop-6" cx="457" cy="290" rx="3" ry="5"/>
+</g>
+<g class="table-splashes" fill="#8a5a39" opacity=".5"><ellipse cx="326" cy="438" rx="7" ry="3"/><ellipse cx="588" cy="431" rx="5" ry="2"/><ellipse cx="313" cy="444" rx="3" ry="1.5"/></g>
+<g class="scene-steam" fill="none" stroke="#6b8a71" stroke-width="3" stroke-linecap="round" opacity=".35"><path d="M411 257c-22-20 17-34 0-58"/><path d="M448 251c-23-24 19-37 0-65"/><path d="M485 258c-20-19 17-29 1-50"/></g>
+</svg>
+</div><p class="intro-ready">Kopinya siap. Sekarang, giliran idemu.</p></div><script src="gsap.min.js"></script><script src="intro-timeline.js"></script></body></html>

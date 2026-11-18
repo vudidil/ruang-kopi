@@ -1,0 +1,163 @@
+{
+  "version": 3,
+  "exportedAt": "2026-11-14T02:14:01.325Z",
+  "plans": [
+    {
+      "id": "745eb73e-87c1-4ee4-a065-20b5ed008c86",
+      "name": "Contoh kedai kecil",
+      "example": true,
+      "createdAt": "2026-11-14T02:14:01.324Z",
+      "profile": {
+        "name": "Kedai Cerita",
+        "concept": "Kedai kecil dengan takeaway",
+        "opening": ""
+      },
+      "capital": [
+        {
+          "id": "bf240f72-d886-4348-9858-144a59c4aede",
+          "name": "Mesin espresso",
+          "cost": 18000000
+        },
+        {
+          "id": "d7b7560f-452a-4a10-8e47-c265cadddb70",
+          "name": "Grinder",
+          "cost": 5000000
+        },
+        {
+          "id": "0b528b8e-2126-4719-889e-ac57a67fac8d",
+          "name": "Renovasi & furnitur",
+          "cost": 19000000
+        },
+        {
+          "id": "fdaa4d28-31b8-461a-81b1-3339af6e3398",
+          "name": "Stok awal",
+          "cost": 3000000
+        }
+      ],
+      "funds": 50000000,
+      "reserve": 5000000,
+      "ingredients": [
+        {
+          "id": "b249fea9-f687-48b5-8122-f899eb4474da",
+          "name": "Biji kopi",
+          "packPrice": 150000,
+          "packQty": 1000,
+          "unit": "g",
+          "stock": 3000,
+          "minStock": 500
+        },
+        {
+          "id": "2173d263-237c-4852-96a2-ef228c1d11cf",
+          "name": "Susu",
+          "packPrice": 20000,
+          "packQty": 1000,
+          "unit": "ml",
+          "stock": 6000,
+          "minStock": 2000
+        },
+        {
+          "id": "89c92583-caef-4dc3-b16b-acd06f58118b",
+          "name": "Sirup gula",
+          "packPrice": 50000,
+          "packQty": 1000,
+          "unit": "ml",
+          "stock": 1000,
+          "minStock": 200
+        },
+        {
+          "id": "15211404-caab-45ee-baed-8bd5415ab6d8",
+          "name": "Air & es",
+          "packPrice": 1000,
+          "packQty": 1000,
+          "unit": "ml",
+          "stock": 20000,
+          "minStock": 5000
+        }
+      ],
+      "menus": [
+        {
+          "id": "1963783b-1a8f-4760-a00e-455c8057e8e5",
+          "name": "Kopi susu",
+          "prices": {
+            "dinein": 22000,
+            "takeaway": 23000,
+            "delivery": 28000
+          },
+          "mix": 60,
+          "recipe": [
+            {
+              "ingredientId": "b249fea9-f687-48b5-8122-f899eb4474da",
+              "qty": 18
+            },
+            {
+              "ingredientId": "2173d263-237c-4852-96a2-ef228c1d11cf",
+              "qty": 125
+            },
+            {
+              "ingredientId": "89c92583-caef-4dc3-b16b-acd06f58118b",
+              "qty": 20
+            },
+            {
+              "ingredientId": "15211404-caab-45ee-baed-8bd5415ab6d8",
+              "qty": 150
+            }
+          ]
+        },
+        {
+          "id": "6fa8e7ae-6ed1-453d-9ca4-56673a686c6e",
+          "name": "Americano",
+          "prices": {
+            "dinein": 18000,
+            "takeaway": 19000,
+            "delivery": 24000
+          },
+          "mix": 40,
+          "recipe": [
+            {
+              "ingredientId": "b249fea9-f687-48b5-8122-f899eb4474da",
+              "qty": 18
+            },
+            {
+              "ingredientId": "15211404-caab-45ee-baed-8bd5415ab6d8",
+              "qty": 250
+            }
+          ]
+        }
+      ],
+      "channels": {
+        "dinein": {
+          "share": 40,
+          "packaging": 0,
+          "fee": 0
+        },
+        "takeaway": {
+          "share": 40,
+          "packaging": 1200,
+          "fee": 0
+        },
+        "delivery": {
+          "share": 20,
+          "packaging": 1500,
+          "fee": 20
+        }
+      },
+      "assumptions": {
+        "days": 26,
+        "cups": 60,
+        "waste": 5,
+        "discount": 0,
+        "paymentFee": 0,
+        "hours": 8,
+        "baristas": 1,
+        "cupsPerBarista": 20
+      },
+      "fixed": {
+        "rent": 2500000,
+        "salary": 4000000,
+        "utilities": 1000000,
+        "other": 500000
+      },
+      "ledger": []
+    }
+  ]
+}

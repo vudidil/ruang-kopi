@@ -1,0 +1,146 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="coffee-scene-title">
+<title id="coffee-scene-title">Kopi dituangkan dari teko miring ke cangkir di atas meja dengan gaya 3D lembut.</title>
+<defs>
+ <linearGradient id="ceramic" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#f3f9f1"/>
+  <stop offset="20%" stop-color="#d6ebd0"/>
+  <stop offset="55%" stop-color="#9fc7a3"/>
+  <stop offset="85%" stop-color="#5b8f72"/>
+  <stop offset="100%" stop-color="#3b6951"/>
+ </linearGradient>
+ <linearGradient id="ceramic-saucer" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#ffffff"/>
+  <stop offset="35%" stop-color="#f8fdf6"/>
+  <stop offset="70%" stop-color="#e0ede0"/>
+  <stop offset="100%" stop-color="#b6cbb8"/>
+ </linearGradient>
+ <linearGradient id="ceramic-spec" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
+  <stop offset="35%" stop-color="#ffffff" stop-opacity=".2"/>
+  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+ </linearGradient>
+ <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#f5e0c2"/>
+  <stop offset="45%" stop-color="#e4c79e"/>
+  <stop offset="100%" stop-color="#c69e6e"/>
+ </linearGradient>
+ <linearGradient id="table-bevel" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#fff5e4"/>
+  <stop offset="100%" stop-color="#ebd0ad"/>
+ </linearGradient>
+ <linearGradient id="coffee" x1="0" y1="0" x2=".8" y2="1">
+  <stop offset="0%" stop-color="#b87844"/>
+  <stop offset="30%" stop-color="#8a512d"/>
+  <stop offset="70%" stop-color="#552f19"/>
+  <stop offset="100%" stop-color="#31190d"/>
+ </linearGradient>
+ <linearGradient id="crema" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#eed4a8"/>
+  <stop offset="40%" stop-color="#d8a66e"/>
+  <stop offset="80%" stop-color="#b67742"/>
+  <stop offset="100%" stop-color="#804a25"/>
+ </linearGradient>
+ <linearGradient id="pitcher-body" x1="0" y1="0" x2="1" y2="0.35">
+  <stop offset="0%" stop-color="#ffffff"/>
+  <stop offset="22%" stop-color="#f7f2e6"/>
+  <stop offset="60%" stop-color="#ded0bb"/>
+  <stop offset="90%" stop-color="#baa78d"/>
+  <stop offset="100%" stop-color="#99856c"/>
+ </linearGradient>
+ <linearGradient id="pitcher-handle" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#f5eee0"/>
+  <stop offset="50%" stop-color="#d8c7aa"/>
+  <stop offset="100%" stop-color="#a89274"/>
+ </linearGradient>
+ <linearGradient id="pitcher-inside" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#362316"/>
+  <stop offset="60%" stop-color="#4d3320"/>
+  <stop offset="100%" stop-color="#734d31"/>
+ </linearGradient>
+ <linearGradient id="stream" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#552e18"/>
+  <stop offset="35%" stop-color="#9f6439"/>
+  <stop offset="70%" stop-color="#c48550"/>
+  <stop offset="100%" stop-color="#66381e"/>
+ </linearGradient>
+ <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
+  <stop offset="0%" stop-color="#3a2416" stop-opacity=".36"/>
+  <stop offset="45%" stop-color="#3a2416" stop-opacity=".18"/>
+  <stop offset="75%" stop-color="#3a2416" stop-opacity=".06"/>
+  <stop offset="100%" stop-color="#3a2416" stop-opacity="0"/>
+ </radialGradient>
+ <radialGradient id="cup-inner-shadow" cx="50%" cy="30%" r="50%">
+  <stop offset="0%" stop-color="#331e11" stop-opacity=".45"/>
+  <stop offset="70%" stop-color="#24150b" stop-opacity=".75"/>
+  <stop offset="100%" stop-color="#140a04" stop-opacity=".95"/>
+ </radialGradient>
+ <clipPath id="cup-opening"><ellipse cx="446" cy="294" rx="99" ry="31"/></clipPath>
+</defs>
+<g class="scene-decor" opacity=".7">
+ <circle cx="202" cy="190" r="78" fill="#dce7cd"/>
+ <circle cx="714" cy="262" r="105" fill="#ece4d5"/>
+ <path d="M173 303c-9-32 18-63 44-62-3 29-15 52-44 62Z" fill="#b6cdb0"/>
+ <path d="m180 294 29-42" stroke="#84a98c" stroke-width="2"/>
+ <circle cx="680" cy="128" r="7" fill="#bbd3b0"/>
+ <circle cx="259" cy="122" r="4" fill="#a9c1a2"/>
+</g>
+<g class="scene-table">
+ <path d="M112 402h676l106 138H6Z" fill="url(#table)"/>
+ <path d="m112 402-3 7h680l-1-7Z" fill="url(#table-bevel)"/>
+ <path d="M152 424h580M97 476h707M303 403l-45 137M648 403l74 137" stroke="#b9986c" opacity=".18" stroke-width="2"/>
+</g>
+<ellipse class="scene-shadow" cx="458" cy="442" rx="205" ry="46" fill="url(#shadow)"/>
+<g class="scene-saucer">
+ <ellipse cx="451" cy="437" rx="160" ry="42" fill="#9fb390" opacity=".5"/>
+ <ellipse cx="451" cy="433" rx="156" ry="39" fill="url(#ceramic-saucer)"/>
+ <ellipse cx="451" cy="430" rx="152" ry="36" fill="none" stroke="#ffffff" stroke-width="2.5" opacity=".75"/>
+ <ellipse cx="451" cy="428" rx="114" ry="25" fill="none" stroke="#cfbe9e" stroke-width="2.5"/>
+ <ellipse cx="451" cy="427" rx="106" ry="22" fill="#e8dac1" opacity=".4"/>
+</g>
+<g class="scene-cup">
+ <path d="M548 318c86-25 98 84 22 84l-14-22c48 7 53-58 3-41" fill="none" stroke="#335946" stroke-width="26" stroke-linecap="round"/>
+ <path d="M548 315c85-22 93 81 19 82l-11-18c46 5 50-55 3-43" fill="none" stroke="url(#ceramic)" stroke-width="16" stroke-linecap="round"/>
+ <path d="M552 316c70-16 78 64 14 66" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".6"/>
+ <path d="M338 292h217l-15 102c-5 52-160 56-178 4Z" fill="url(#ceramic)"/>
+ <path d="M341 294l12 94c3 22 36 38 93 39 57 1 90-15 93-39l14-94" fill="none" stroke="#254a37" stroke-width="2" opacity=".25"/>
+ <path d="M348 298c5 30 11 65 19 80 6 12 20 21 34 23" fill="none" stroke="url(#ceramic-spec)" stroke-width="10" stroke-linecap="round"/>
+ <ellipse cx="446" cy="294" rx="110" ry="38" fill="#eef6ea"/>
+ <ellipse cx="446" cy="294" rx="100" ry="32" fill="#c2d4bc"/>
+ <ellipse cx="446" cy="297" rx="90" ry="25" fill="url(#cup-inner-shadow)"/>
+ <g clip-path="url(#cup-opening)">
+  <ellipse class="coffee-liquid" cx="446" cy="294" rx="99" ry="31" fill="url(#coffee)"/>
+  <ellipse class="coffee-liquid" cx="446" cy="294" rx="98" ry="30" fill="none" stroke="#e0af77" stroke-width="3" opacity=".75"/>
+  <ellipse class="coffee-foam" cx="446" cy="294" rx="90" ry="24" fill="none" stroke="url(#crema)" stroke-width="5"/>
+  <ellipse cx="425" cy="289" rx="38" ry="11" fill="#ffffff" opacity=".22"/>
+  <ellipse class="coffee-ripple" cx="456" cy="290" rx="24" ry="8" fill="none" stroke="#f6cca0" stroke-opacity=".8" stroke-width="2.5"/>
+ </g>
+ <path d="M338 295c16 49 198 49 217 0" fill="none" stroke="#ffffff" stroke-width="4.5" opacity=".9"/>
+ <text x="443" y="386" text-anchor="middle" fill="#254d38" font-family="'Fraunces',Georgia,serif" font-size="41" font-weight="600" font-style="italic" opacity=".85">rk.</text>
+</g>
+<g class="coffee-pour">
+ <path class="pour-stream" d="M475 140c-3 38-17 80-21 120s-6 26-8 34" fill="none" stroke="url(#stream)" stroke-width="16" stroke-linecap="round"/>
+ <path class="pour-highlight" d="M473 142c-3 36-17 78-21 118s-6 26-8 32" fill="none" stroke="#f2bd82" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+ <path d="M476 144c-3 32-15 68-18 102" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity=".55"/>
+</g>
+<g class="scene-pitcher">
+ <path d="M598 94c47 8 52 62-12 72" fill="none" stroke="url(#pitcher-handle)" stroke-width="17" stroke-linecap="round"/>
+ <path d="M599 94c39 8 43 54-10 62" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".5"/>
+ <path d="M475 140c15-5 45-70 70-72 30-2 55 7 57 14 3 23-7 73-14 96-7 12-57 12-82 0-14-13-24-26-31-38Z" fill="url(#pitcher-body)"/>
+ <path d="M475 140c15-5 45-70 70-72 30-2 55 7 57 14 3 23-7 73-14 96-7 12-57 12-82 0-14-13-24-26-31-38Z" fill="none" stroke="#94826b" stroke-width="1.5" opacity=".35"/>
+ <ellipse cx="558" cy="74" rx="36" ry="10" fill="#fffefb"/>
+ <ellipse cx="558" cy="75" rx="30" ry="8" fill="#d1c2ab"/>
+ <ellipse cx="558" cy="76" rx="25" ry="6" fill="url(#pitcher-inside)"/>
+ <path d="M475 140c9 4 23-15 35-48" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+ <path d="M515 90c1 30-1 60-5 84" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity=".75"/>
+</g>
+<g fill="#865334" class="scene-drops">
+ <ellipse class="drop drop-1" cx="445" cy="287" rx="5" ry="8"/>
+ <ellipse class="drop drop-2" cx="459" cy="286" rx="4" ry="7"/>
+ <ellipse class="drop drop-3" cx="440" cy="289" rx="4" ry="6"/>
+ <ellipse class="drop drop-4" cx="460" cy="289" rx="3" ry="5"/>
+ <ellipse class="drop drop-5" cx="448" cy="286" rx="4" ry="6"/>
+ <ellipse class="drop drop-6" cx="457" cy="290" rx="3" ry="5"/>
+</g>
+<g class="table-splashes" fill="#8a5a39" opacity=".5"><ellipse cx="326" cy="438" rx="7" ry="3"/><ellipse cx="588" cy="431" rx="5" ry="2"/><ellipse cx="313" cy="444" rx="3" ry="1.5"/></g>
+<g class="scene-steam" fill="none" stroke="#527d60" stroke-width="3.5" stroke-linecap="round" opacity=".4"><path d="M411 257c-22-20 17-34 0-58"/><path d="M448 251c-23-24 19-37 0-65"/><path d="M485 258c-20-19 17-29 1-50"/></g>
+</svg>

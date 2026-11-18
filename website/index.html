@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#F3E8D2">
+  <meta name="description" content="Rencanakan modal kedai kopi, hitung biaya tiap gelas dan perkiraan untung, lalu catat penjualan serta persediaan bahan dengan Ruang Kopi.">
+  <title>Ruang Kopi · Perencana Usaha Kedai Kopi</title>
+  <link rel="canonical" href="https://ruang-kopi-rencana.flaredpear16.chatgpt.site/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="Ruang Kopi">
+  <meta property="og:title" content="Ruang Kopi · Perencana Usaha Kedai Kopi">
+  <meta property="og:description" content="Hitung kebutuhan modal, biaya per gelas, dan perkiraan untung. Catat penjualan dan bahan dalam satu ruang usaha.">
+  <meta property="og:url" content="https://ruang-kopi-rencana.flaredpear16.chatgpt.site/">
+  <meta property="og:image" content="https://ruang-kopi-rencana.flaredpear16.chatgpt.site/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ruang Kopi, perencana modal, resep, penjualan, dan perkiraan untung kedai kopi.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ruang-kopi-rencana.flaredpear16.chatgpt.site/social-card.png">
+  <meta name="twitter:image:alt" content="Ruang Kopi, perencana usaha kedai kopi.">
+  <meta name="twitter:title" content="Ruang Kopi · Perencana Usaha Kedai Kopi">
+  <meta name="twitter:description" content="Rencanakan modal, resep, dan penjualan kedai kopi dengan bahasa yang mudah dipahami.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Ruang Kopi",
+    "url": "https://ruang-kopi-rencana.flaredpear16.chatgpt.site/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "id",
+    "browserRequirements": "JavaScript dan penyimpanan lokal browser",
+    "description": "Alat perencanaan kedai kopi untuk menghitung modal, biaya bahan, perkiraan untung, dan mencatat transaksi sederhana.",
+    "featureList": ["Perencanaan modal", "Resep dan biaya bahan", "Perkiraan untung", "Catatan penjualan", "Persediaan bahan", "Simpan dan pulihkan rencana"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="workbook.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+  <section id="intro-overlay" hidden tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <canvas id="intro-sequence-canvas" class="intro-sequence-canvas" width="960" height="540" aria-hidden="true"></canvas>
+    <div class="intro-sequence-vignette" aria-hidden="true"></div>
+    <div class="intro-opening">
+      <div class="intro-brand">
+        <span class="brand-mark" aria-hidden="true">rk<span>.</span></span>
+        <span class="intro-brand-name">ruang kopi</span>
+      </div>
+      <p class="intro-eyebrow">Perencana usaha kedai kopi</p>
+      <h2 id="intro-title" class="intro-title">Rencana kedaimu, dimulai di sini.</h2>
+      <p class="intro-subtitle">Hitung modal awal, biaya tiap gelas, dan catatan harian dalam satu buku kerja.</p>
+      <div class="intro-actions">
+        <button id="intro-start" class="intro-start-btn" type="button">Mulai Usahamu</button>
+      </div>
+    </div>
+    <button id="intro-skip" class="intro-skip-btn" type="button">Lewati intro</button>
+  </section>
+  <a class="skip-link" href="#page">Lewati ke konten</a>
+  <aside class="sidebar">
+    <div class="shell-head">
+      <a class="brand" href="#ringkasan" aria-label="Ruang Kopi, beranda"><span class="brand-mark">rk<span>.</span></span><span>ruang kopi<small>Rencana kedai, setiap hari.</small></span></a>
+      <div class="workspace"><span class="workspace-icon" data-icon="coffee"></span><span>Kedai impianmu<small>Rencana bisnis pertamaku</small></span></div>
+    </div>
+    <nav id="main-navigation" aria-label="Navigasi utama">
+      <a href="#ringkasan" data-group="ringkasan" data-icon="grid"><span>Ringkasan</span></a>
+      <a href="#usaha" data-group="usaha" data-icon="wallet"><span>Usaha saya</span></a>
+      <a href="#menu" data-group="menu" data-icon="coffee"><span>Menu &amp; bahan</span></a>
+      <a href="#hitung" data-group="hitung" data-icon="chart"><span>Hitung untung</span></a>
+      <a href="#catatan" data-group="catatan" data-icon="check"><span>Catatan</span></a>
+    </nav>
+    <div class="nav-heading">
+      <a class="help-link" href="#bantuan" data-icon="info"><span>Cara menggunakan</span></a>
+      <button id="sidebar-toggle" type="button" aria-label="Ringkas menu atas" aria-expanded="true" aria-controls="main-navigation" title="Ringkas menu"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14l5-5 5 5M4 20h16"/></svg></button>
+    </div>
+  </aside>
+  <main>
+    <header class="topbar"><div class="breadcrumb">Buku kerja <span>/</span> <b id="breadcrumb-page">Ringkasan</b></div><div class="topbar-right"><span id="save-status" role="status"><span class="live-dot"></span>Tersimpan di perangkat</span><button id="motion-toggle" type="button" aria-pressed="true" title="Ganti intensitas animasi">Gerak penuh</button><a class="topbar-help" href="#bantuan" aria-label="Buka panduan penggunaan">Panduan</a></div></header>
+    <section id="storage-recovery" class="panel storage-recovery" hidden tabindex="-1" aria-label="Pemulihan data"></section>
+    <div id="page" tabindex="-1"></div>
+    <footer><a class="footer-brand" href="#ringkasan">ruang kopi<span>.</span></a><span>Dari ide kecil, menuju kedai impian.</span></footer>
+  </main>
+  <span id="calculation-status" class="sr-only" role="status"></span>
+  <div id="scene-curtain" aria-hidden="true"><div class="scene-band"></div><div class="scene-band"></div><div class="scene-band"></div><span class="scene-label"></span></div>
+  <dialog id="unit-dialog" aria-labelledby="unit-title"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="finance.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="motion.js"></script>
+  <script src="app.js"></script>
+  <script src="intro-timeline.js"></script>
+  <script src="intro-controller.js"></script>
+</body>
+</html>

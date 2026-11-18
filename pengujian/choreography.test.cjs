@@ -1,0 +1,94 @@
+const {setup}=require('./core.test.cjs');
+const assert=require('node:assert/strict');
+const t=setup(),{doc,window,run,go,click}=t;
+click(doc.querySelector('[data-action="start-sample"]'));
+window.matchMedia=()=>({matches:false});
+const contexts=[],timelines=[],motions=[];
+window.gsap={
+ context(fn){const context={reverted:false,add(fn){fn();},revert(){this.reverted=true;}};contexts.push(context);fn();return context;},
+ timeline(options={}){const timeline={reverted:false,options,fromTo(target,from,to,position){motions.push({target,from,to,position});return this;},to(target,to,position){motions.push({target,to,position});return this;},revert(){this.reverted=true;}};timelines.push(timeline);return timeline;},
+ fromTo(target,from,to){motions.push({target,from,to});},set(){},quickTo(){return ()=>{};}
+};
+go('ringkasan');
+const title=doc.querySelector('h1'),label=title.getAttribute('aria-label');
+assert(label);assert.equal(title.textContent,label);assert(title.querySelector('.motion-word'));
+assert.equal(doc.querySelector('#scene-curtain').style.visibility,'visible');
+const current=contexts.at(-1);
+doc.querySelector('#page').dispatchEvent(new window.Event('focusin',{bubbles:true}));
+assert(!current.reverted,'Programmatic page focus must not cancel its entrance.');
+for(const route of ['menu','catatan','hitung','usaha','ringkasan'])go(route);
+assert(contexts.slice(0,-1).every(c=>c.reverted),'Old page timelines must be cleaned up.');
+assert(timelines.filter(t=>t.options.onComplete).slice(0,-1).every(t=>t.reverted));
+const before=t.saved();click(doc.querySelector('#motion-toggle'));
+assert.equal(doc.body.dataset.motion,'light');assert.equal(doc.querySelector('#scene-curtain').style.visibility,'hidden');
+assert.equal(t.saved(),before,'Motion preference must not overwrite business storage.');
+const count=motions.length;go('menu');assert.equal(motions.length,count);
+click(doc.querySelector('#motion-toggle'));assert.equal(doc.body.dataset.motion,'full');assert(motions.length>count);
+const active=contexts.at(-1);doc.querySelector('.input').dispatchEvent(new window.Event('focusin',{bubbles:true}));
+assert(active.reverted);assert.equal(doc.querySelector('#scene-curtain').style.visibility,'hidden');
+go('ringkasan');const active2=contexts.at(-1);doc.dispatchEvent(new window.Event('rk:intro-start'));assert(active2.reverted);
+doc.body.classList.add('intro-active');const paused=motions.length;run('render()');assert.equal(motions.length,paused);
+doc.body.classList.remove('intro-active');doc.dispatchEvent(new window.Event('rk:intro-end'));assert(motions.length>paused);
+window.matchMedia=query=>({matches:query.includes('hover: hover')});
+const frames=new Map();let frameId=0;
+window.requestAnimationFrame=fn=>{frames.set(++frameId,fn);return frameId;};window.cancelAnimationFrame=id=>frames.delete(id);
+const card=doc.querySelector('.profit-feature');
+const move=new window.Event('pointermove',{bubbles:true});Object.assign(move,{pointerType:'mouse',clientX:20,clientY:20});card.dispatchEvent(move);
+assert.equal(frames.size,1);
+const leave=new window.Event('pointerout',{bubbles:true});leave.relatedTarget=null;card.dispatchEvent(leave);
+assert.equal(frames.size,0,'Leaving a card must cancel pending pointer motion.');
+// Layar kecil memakai jarak terbatas, gerak dua sumbu, dan teks sesudah tirai mulai membuka.
+window.matchMedia=query=>({matches:query.includes('max-width: 720px')});
+let start=motions.length;go('hitung');
+let mobile=motions.slice(start);
+let cards=mobile.find(m=>m.from?.scale===.93&&m.to.delay===.48);
+assert(cards);assert.equal(cards.from.y,-72);assert.equal(cards.to.duration,.68);assert(cards.to.stagger.amount<=.16);
+let bands=mobile.filter(m=>m.target?.[0]?.classList.contains('scene-band'));
+assert.equal(bands[0].from.yPercent,105);assert.equal(bands[0].from.xPercent,0);
+assert.equal(bands[1].to.xPercent,105);assert.equal(bands[1].to.yPercent,0);
+const heading=mobile.find(m=>m.target?.[0]?.classList.contains('motion-word'));
+assert(heading.position>=bands[1].position,'Heading entrance must follow the start of the curtain opening.');
+start=motions.length;go('ringkasan');mobile=motions.slice(start);
+cards=mobile.find(m=>m.from?.scale===.93&&m.to.delay===.48);
+assert.equal(Math.abs(cards.from.x(0)),72);
+bands=mobile.filter(m=>m.target?.[0]?.classList.contains('scene-band'));
+assert.equal(bands[0].from.xPercent,-105);assert.equal(bands[1].to.yPercent,-105);
+const observers=[];
+window.IntersectionObserver=class{
+ constructor(callback){this.callback=callback;this.watched=new Set();this.disconnected=false;observers.push(this);}
+ observe(el){this.watched.add(el);}unobserve(el){this.watched.delete(el);}disconnect(){this.disconnected=true;this.watched.clear();}
+};
+const originalRect=window.HTMLElement.prototype.getBoundingClientRect;
+window.HTMLElement.prototype.getBoundingClientRect=function(){return {top:this.matches('.workbook-chart')?1000:0,width:340,height:250};};
+window.innerHeight=760;go('ringkasan');
+const observed=observers.at(-1),below=doc.querySelector('.workbook-chart');
+assert(observed.watched.has(below));
+start=motions.length;observed.callback([{target:below,isIntersecting:true}]);assert.equal(motions.length,start+1);
+assert(!observed.watched.has(below));
+observed.callback([{target:below,isIntersecting:true}]);assert.equal(motions.length,start+1,'A section must enter only once per render.');
+go('menu');assert(observed.disconnected,'Scrolling observers must be released after leaving a page.');
+window.HTMLElement.prototype.getBoundingClientRect=originalRect;delete window.IntersectionObserver;
+window.matchMedia=()=>({matches:true});go('catatan');assert.equal(doc.body.dataset.motion,'light');assert(doc.querySelector('#motion-toggle').disabled);
+assert.equal(doc.querySelector('#scene-curtain').style.visibility,'hidden');
+window.matchMedia=()=>({matches:false});delete window.gsap;go('usaha');
+assert(!doc.body.classList.contains('motion-ready'));assert(doc.querySelector('h1').textContent);
+run('plan().ingredients=[];plan().menus=[];render();');assert(!/NaN|Infinity|undefined/.test(doc.querySelector('#page').textContent));
+const loadedSources=[],drawnFrames=[];
+Object.defineProperty(window.HTMLImageElement.prototype,'src',{configurable:true,set(v){loadedSources.push(v);this.complete=true;this.naturalWidth=720;this.naturalHeight=405;this._src=v;this.onload?.();},get(){return this._src;}});
+const introCanvas=doc.querySelector('#intro-sequence-canvas');
+introCanvas.getContext=()=>({fillStyle:'',imageSmoothingEnabled:true,imageSmoothingQuality:'high',fillRect(){},drawImage(img){drawnFrames.push(img.src);}});
+window.RKMotion.drawIntroFrame(0.92);
+assert.equal(loadedSources.length,118);
+assert.equal(loadedSources[0],'sequence/ezgif-frame-001.webp');
+assert.equal(loadedSources[117],'sequence/ezgif-frame-118.webp');
+assert.equal(drawnFrames.at(-1),'sequence/ezgif-frame-109.webp');
+const mobileCtx=setup(),mobileSources=[];
+mobileCtx.window.matchMedia=q=>({matches:q.includes('max-width: 720px')});
+Object.defineProperty(mobileCtx.window.HTMLImageElement.prototype,'src',{configurable:true,set(v){mobileSources.push(v);this.complete=true;this.naturalWidth=720;this.naturalHeight=405;this._src=v;this.onload?.();},get(){return this._src;}});
+mobileCtx.doc.querySelector('#intro-sequence-canvas').getContext=()=>({fillStyle:'',imageSmoothingEnabled:true,imageSmoothingQuality:'high',fillRect(){},drawImage(){}});
+mobileCtx.window.RKMotion.drawIntroFrame(0.5);
+assert.equal(mobileSources.length,59);
+assert.equal(mobileSources[0],'sequence/ezgif-frame-001.webp');
+assert.equal(mobileSources[58],'sequence/ezgif-frame-117.webp');
+go('ringkasan');assert(!/NaN|Infinity|undefined/.test(doc.querySelector('#page').textContent));
+console.log('PASS: motion lifecycle with recorded GSAP calls, mobile distances and timing, two-axis scene wipes, scroll reveal cleanup, rapid navigation, keyboard interruption, intensity preference, business-data preservation, intro coordination, reduced motion and missing-library fallback.');

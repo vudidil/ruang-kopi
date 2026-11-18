@@ -1,0 +1,12 @@
+{
+  "source_commit": "f9626d5c22faf16fd8acc12ea3988fc1bec6a3d7",
+  "packaged_on": "2026-11-14",
+  "site_url": "https://ruang-kopi-rencana.flaredpear16.chatgpt.site",
+  "deployment_status": "succeeded",
+  "deployment_id": "appgdep_6af7c15dfa348191af4fd8f0418a4d0b",
+  "saved_version_id": "appgprj_6af6a6bd04a8819198c878716ca5cbc2~appgver_78da8e51953881918654a5177300dc3b",
+  "audience": "owner-private",
+  "runtime_source": "website/",
+  "history_archive_count": 8,
+  "personal_browser_data_included": false
+}

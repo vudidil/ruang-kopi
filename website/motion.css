@@ -1,0 +1,32 @@
+/* Koreografi halaman Ruang Kopi (Krem Kopi Hangat) */
+#scene-curtain { position: fixed; inset: 0; z-index: 45; pointer-events: none; visibility: hidden; overflow: hidden; contain: layout paint; }
+.scene-band { position: absolute; inset: 0; background: var(--curtain-1); }
+.scene-band:nth-child(2) { background: var(--curtain-2); }
+.scene-band:nth-child(3) { background: var(--curtain-3); }
+.scene-band:nth-child(3):after { content: 'rk.'; position: absolute; right: -2%; bottom: -10%; color: var(--curtain-mark); font: 700 clamp(200px,40vw,560px)/1 var(--serif); letter-spacing: -.06em; transform: rotate(-10deg); }
+.scene-label { position: absolute; top: 40%; left: 8%; max-width: 84%; color: var(--curtain-text); font: 500 clamp(42px,7vw,92px)/1 var(--serif); letter-spacing: -0.03em; opacity: 0; overflow-wrap: anywhere; }
+#motion-toggle { padding: 7px 14px; min-height: 44px; font-size: 12px; white-space: nowrap; background: var(--receipt); border: 1px solid var(--line); color: var(--muted); border-radius: 8px; }
+#motion-toggle[aria-pressed="true"] { border-color: var(--accent); background: var(--sheet); color: var(--accent-ink); font-weight: 700; }
+#motion-toggle:disabled { opacity: .65; color: var(--muted); }
+body.motion-ready .page-enter, body.motion-ready .page-enter > * { animation: none; }
+.scene-band, .motion-word { backface-visibility: hidden; }
+.motion-word { display: inline-block; white-space: nowrap; transform-origin: 0 100%; }
+.motion-line { display: inline; }
+body.motion-ready :is(.profit-feature,.guide-card,.plan-card,.advice) { position: relative; transition: background 180ms var(--ease), border-color 180ms ease; }
+body.motion-ready .profit-feature:after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 1; opacity: 0; background-image: radial-gradient(400px circle at var(--spot-x,50%) var(--spot-y,50%),var(--spot-glow),transparent 70%); transition: opacity 200ms ease; }
+body.motion-ready .profit-feature:hover:after { opacity: 1; }
+body.motion-ready :is(.guide-card,.plan-card,.advice):hover { border-color: var(--nav-border); }
+body.motion-ready :is(.section-tabs a,.menu-tabs button) { transition: background 160ms ease, color 160ms ease, border-color 160ms ease; }
+body.motion-ready .chart-track > span { transition: none; }
+body[data-motion="light"] .page-enter, body[data-motion="light"] .page-enter > * { animation: calm-enter 160ms ease-out both; }
+@keyframes calm-enter { from { opacity: .65; } to { opacity: 1; } }
+@media (max-width: 680px) {
+ #scene-curtain { inset: 0 0 calc(74px + env(safe-area-inset-bottom)); }
+ .scene-label { font-size: clamp(36px,11vw,58px); letter-spacing: -0.025em; }
+ .scene-band:nth-child(3):after { bottom: 4%; font-size: 62vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+ #scene-curtain { display: none !important; }
+ .motion-word { transform: none !important; opacity: 1 !important; }
+ body[data-motion] .page-enter, body[data-motion] .page-enter > * { animation: none !important; }
+}

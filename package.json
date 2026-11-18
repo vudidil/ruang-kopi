@@ -1,0 +1,17 @@
+{
+  "name": "ruang-kopi-serah-terima",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kode dan catatan serah terima Ruang Kopi untuk Google Antigravity",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node tools/serve.cjs",
+    "test": "node pengujian/core.test.cjs && node pengujian/intro.test.cjs && node pengujian/recovery.test.cjs && node pengujian/experience.test.cjs && node pengujian/choreography.test.cjs && node pengujian/source.test.cjs"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.15",
+    "css-tree": "3.2.1"
+  }
+}
